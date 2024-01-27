@@ -1,5 +1,4 @@
-from pydantic import BaseModel, ValidationError, validator, Field, EmailStr
-from  typing import Optional
+from pydantic import BaseModel, Field, EmailStr
 
 class CustomBaseModel(BaseModel):
     id: int = Field(gt=0)
@@ -13,7 +12,6 @@ class Category(CustomBaseModel):
 
 class Task(CustomBaseModel):
     description: str = Field('Does not contain any description', min_length=10)
-    test: Optional[str] = Field('')
     is_active: bool
     user: User
     category: Category
