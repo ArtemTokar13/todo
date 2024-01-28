@@ -17,8 +17,8 @@ def original_file(file_list: List[UploadFile] = File()):
     folder_path = os.path.join(os.getcwd(), 'uploads')
     os.makedirs(folder_path, exist_ok=True)
     filename_list = []
-    for file in file_list:
-        uid = md5(str(int(time.time())).encode()).hexdigest()
+    for id, file in enumerate(file_list):
+        uid = md5(str(int(time.time()) + id).encode()).hexdigest()
         file_location = os.path.join(folder_path, f'{uid}_{file.filename}')
         with open(file_location, 'wb') as f:
             f.write(file.file.read())

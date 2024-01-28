@@ -15,3 +15,5 @@ class Task(CustomBaseModel):
     is_active: bool
     user: User
     category: Category
+
+    

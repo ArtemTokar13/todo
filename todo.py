@@ -42,3 +42,4 @@ def delete_task(response: Response, id: int):
             return {'todo_list': todo_list}
     response.status_code = status.HTTP_404_NOT_FOUND
     return {'Error': 'Element with this id does not found'}
+

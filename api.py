@@ -16,3 +16,5 @@ app.include_router(router)
 app.include_router(todo_router, prefix='/todos')
 app.include_router(uploads_router, prefix='/uploads')
 
+
+
