@@ -23,8 +23,13 @@ def users(db):
         user_list.append(document)
     return user_list
 
-def user(db, id):
-    res = db.users.find_one({'_id': ObjectId(id)})
+def user(db, id=None, email=None):
+    query = dict()
+    if id is not None:
+        query['_id'] = ObjectId(id)
+    if email is not None:
+        query['email'] = email
+    res = db.users.find_one(query)
     if res is not None:
         res['_id'] = str(res['_id'])
     return res

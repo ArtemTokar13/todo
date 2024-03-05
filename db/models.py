@@ -5,6 +5,7 @@ class CustomBaseModel(BaseModel):
 
 class User(CustomBaseModel):
     email: EmailStr
+    password: str = Field(min_length=8)
 
 class Category(CustomBaseModel):
     priority: str
